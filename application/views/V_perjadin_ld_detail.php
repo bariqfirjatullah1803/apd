@@ -1,4 +1,4 @@
-<!-- Display -->
+V_perjadin_dd_detail.php<!-- Display -->
 <div class="row">
 	<div class="col-lg-12">
 		<div class="card">
@@ -130,31 +130,37 @@
 						</div>
 					</div>
 					<?php
-					if ($item['status'] == 'pending'): ?>
+					if ($item['status'] == 'approve'): ?>
+						<hr/>
 						<div class="mb-3">
-							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/approve') ?>"
-							   class="btn btn-primary">Setuju</a>
-							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/reject') ?>"
-							   class="btn btn-danger">Tolak</a>
+							<label class="form-label">Daftar Bukti Lapangan</label>
+							<div>
+								<?php
+								foreach ($images as $image): ?>
+									<button class="btn btn-light btn-rounded">
+										<a href="<?= base_url(); ?>uploads/bukti-lapangan/<?= $image['image']; ?>"
+										   target="_blank">
+											<?= $image['image'] ?>
+										</a>
+										<i class="mdi mdi-download ml-2"></i>
+									</button>
+								<?php
+								endforeach; ?>
+							</div>
 						</div>
+						<hr>
+						<form action="<?= base_url('C_perjadin_ld/do_upload/' . $item['id']) ?>" method="POST"
+							  enctype="multipart/form-data">
+							<div class="mb-3">
+								<label class="form-label">Upload Bukti Lapangan</label>
+								<input type="file" class="form-control" name="image">
+							</div>
+							<div class="mb-3">
+								<button type="submit" class="btn btn-primary">Tambah Bukti</button>
+							</div>
+						</form>
 					<?php
 					endif ?>
-					<div class="mb-3">
-						<label class="form-label">Bukti Lapangan</label>
-						<div>
-							<?php
-							foreach ($images as $image): ?>
-								<button class="btn btn-light btn-rounded">
-									<a href="<?= base_url(); ?>uploads/bukti-lapangan/<?= $image['image']; ?>"
-									   target="_blank">
-										<?= $image['image'] ?>
-									</a>
-									<i class="mdi mdi-download ml-2"></i>
-								</button>
-							<?php
-							endforeach; ?>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

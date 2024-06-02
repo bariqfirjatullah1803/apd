@@ -18,6 +18,23 @@ class M_approvment extends CI_Model
 		return $query->result_array();
 	}
 
+	public function getByCategory($category)
+	{
+		$sql = "
+					SELECT gi.idSubmit as id,gi.status, peg.namaAll as pegawai, mon.nominalGtAll as nominal, dest.kotaKecamatan as tujuan
+					FROM recap_all_general_information as gi
+         			INNER JOIN recap_all_pegawai as peg on gi.idSubmit = peg.idSubmit
+	 				INNER JOIN recap_all_destination_information as dest on gi.idSubmit = dest.idSubmit
+         			INNER JOIN recap_all_money_details as mon on gi.idSubmit = mon.idSubmit
+					WHERE gi.idKategori = '$category'
+					ORDER BY gi.status DESC
+        ";
+
+		$query = $this->db->query($sql);
+
+		return $query->result_array();
+	}
+
 	public function getById($id)
 	{
 		$sql   = "
@@ -54,5 +71,10 @@ class M_approvment extends CI_Model
 	public function update($id, $status)
 	{
 		$this->db->update('recap_all_general_information', ['status' => $status], ['idSubmit' => $id]);
+	}
+
+	public function upload($data)
+	{
+		$this->db->insert('recap_all_bukti', $data);
 	}
 }

@@ -7,6 +7,7 @@ class C_perjadin_dd extends CI_Controller
 		parent::__construct();
 		$this->load->model('M_tujuan');
 		$this->load->model('M_perjadin_dd');
+		$this->load->model('M_approvment');
 		$this->load->model('M_pegawai');
 		$this->load->model('M_kode_program');
 	}
@@ -50,14 +51,12 @@ class C_perjadin_dd extends CI_Controller
 
 	public function perjadin_recap_index()
 	{
-		$data['pageTitle'] = "Recap";
+		$data['pageTitle'] = "Recap Perjalanan Dinas Dalam Daerah";
 
 		if (isset($_SESSION['idBagian'])) {
-			//Get Session Data
 			$data['idBagian'] = $_SESSION['idBagian'];
 			$data['username'] = $_SESSION['namabagian'];
-
-			$data['dataRecap'] = ($_SESSION['role'] == 'admin') ? $data['dataRecapAll'] = $this->M_perjadin_dd->getAllRecap() : $data['dataRecap'] = $this->M_perjadin_dd->getRecapFromOneSection($_SESSION['idBagian']);
+			$data['items']    = $this->M_approvment->getByCategory('dd');
 
 			$this->load->view('_layouts/header', $data);
 			$this->load->view('V_perjadin_dd_recap', $data);
@@ -65,6 +64,42 @@ class C_perjadin_dd extends CI_Controller
 		} else {
 			redirect('C_login');
 		}
+	}
+
+	public function show($id)
+	{
+		if (isset($_SESSION['idBagian'])) {
+			$data['idBagian']  = $_SESSION['idBagian'];
+			$data['username']  = $_SESSION['namabagian'];
+			$data['pageTitle'] = "Detail Surat Perjalanan Dinas Dalam Daerah";
+			$data['item']      = $this->M_approvment->getById($id);
+			$data['images']    = $this->M_approvment->getAllImageById($id);
+
+			$this->load->view('_layouts/header', $data);
+			$this->load->view('V_perjadin_dd_detail', $data);
+			$this->load->view('_layouts/footer');
+		} else {
+			redirect('C_login');
+		}
+	}
+
+	public function do_upload($id)
+	{
+		$config['upload_path']   = './uploads/bukti-lapangan';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['encrypt_name']  = true;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('image')) {
+			$data = [
+				'image'    => $this->upload->data()['file_name'],
+				'idSubmit' => $id,
+			];
+
+			$this->M_approvment->upload($data);
+		}
+		redirect('C_perjadin_dd/show/' . $id);
 	}
 
 	public function hapus($idSubmit)

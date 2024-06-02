@@ -1,0 +1,1 @@
+Read License.txt for information about what you can do with this software.

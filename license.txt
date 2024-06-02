@@ -1,0 +1,41 @@
+SIMPERDINSETDA Closed-Source License
+
+Copyright © 2021 Ari Mahardika Ahmad Nafis. All rights reserved.
+
+1. Permission is hereby granted to use the compiled executable forms of the 
+software for internal use within "Sekretariat Daerah Kabupaten Malang". 
+External distribution or use of the software is strictly prohibited without the 
+prior written consent of Ari Mahardika Ahmad Nafis.
+
+2. Unauthorized distribution or reproduction of the software, in whole or in 
+part, is strictly prohibited without the prior written consent of Ari Mahardika 
+Ahmad Nafis.
+
+3. This software is provided "as is," without warranty of any kind, express or 
+implied, including but not limited to the warranties of merchantability, 
+fitness for a particular purpose, and noninfringement. In no event shall Ari 
+Mahardika Ahmad Nafis be liable for any claim, damages, or other liability 
+arising from the use or distribution of the software.
+
+4. Any modifications or derivative works of the software may not be created or 
+distributed without the explicit written permission of Ari Mahardika Ahmad 
+Nafis.
+
+5. Commercial use of the software is strictly prohibited without the prior 
+written consent of Ari Mahardika Ahmad Nafis.
+
+6. Distribution and reselling of the software, in whole or in part, is strictly 
+prohibited without the prior written consent of Ari Mahardika Ahmad Nafis.
+
+7. Restrictions on Access to Source Code: Access to the source code of the 
+software is restricted, except with the explicit written permission of Ari 
+Mahardika Ahmad Nafis.
+
+8. When receiving a copy of the software, the license information must not be 
+deleted, modified, or removed.
+
+For inquiries about licensing or permissions, please contact :
+arimahardika.an@gmail.com.
+
+More information about the author can be found at:
+https://github.com/AriMahardika

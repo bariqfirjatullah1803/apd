@@ -7,7 +7,7 @@
                 <p class="card-title-desc"></p>
 
                     <div class="table-responsive">
-                        <table id="datatable-buttons" class="table table-centered dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table id="datatable-buttons" class="table table-centered dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead class="thead-light">
                             <tr>
                                 <th>No Urut</th>

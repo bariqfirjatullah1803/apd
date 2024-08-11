@@ -6,7 +6,7 @@
                 <h5>Download Laporan</h5>
 
                 <table style="display: non" id="datatable-buttons" class="dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                <!-- <table class="table table-centered datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;"> -->
+                <!-- <table class="table table-centered datatable dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;"> -->
                     <thead class="thead-light">
                         <tr>
                             <th>ID</th>
@@ -124,7 +124,7 @@
 
                 <?php if ($idBagian < 30) : ?>
                     <div class="table-responsive">
-                        <table class="table table-centered datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table class="table table-centered datatable dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead class="thead-light">
                                 <tr>
                                     <th>ID</th>
@@ -204,7 +204,7 @@
 
                 <?php if ($idBagian >= 30 && $idBagian < 90) : ?>
                     <div class="table-responsive">
-                        <table class="table table-centered datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table class="table table-centered datatable dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead class="thead-light">
                                 <tr>
                                     <th>ID</th>
@@ -246,7 +246,7 @@
 
                 <?php if ($idBagian > 90) : ?>
                     <div class="table-responsive">
-                        <table class="table table-centered datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table class="table table-centered datatable dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead class="thead-light">
                                 <tr>
                                     <th>ID</th>

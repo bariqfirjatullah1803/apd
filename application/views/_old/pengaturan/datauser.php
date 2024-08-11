@@ -9,7 +9,7 @@
                 <p class="card-title-desc">All data from bagian table</p>
 
                 <div class="table-responsive">
-                    <table class="table table-centered datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table class="table table-centered datatable dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
                                 <th>ID Bagian</th>

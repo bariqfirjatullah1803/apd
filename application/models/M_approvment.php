@@ -37,7 +37,7 @@ class M_approvment extends CI_Model
 
 	public function getById($id)
 	{
-		$sql   = "
+		$sql = "
 			SELECT 
             gi.idSubmit AS id, assoc.idBagian AS id_bagian,
             dur.tanggalBerangkat AS tanggal_berangkat, dur.durasiDenganHari AS durasi_hari, 
@@ -63,14 +63,14 @@ class M_approvment extends CI_Model
 
 	public function getAllImageById($id)
 	{
-		$sql   = "SELECT * FROM recap_all_bukti WHERE idSubmit = $id";
+		$sql = "SELECT * FROM recap_all_bukti WHERE idSubmit = $id";
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
 
-	public function update($id, $status)
+	public function update($id, $data)
 	{
-		$this->db->update('recap_all_general_information', ['status' => $status], ['idSubmit' => $id]);
+		$this->db->update('recap_all_general_information', $data, ['idSubmit' => $id]);
 	}
 
 	public function upload($data)

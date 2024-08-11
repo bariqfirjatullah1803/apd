@@ -10,10 +10,10 @@ class C_approvment extends CI_Controller
 
 	public function index()
 	{
-		$data['idBagian']  = $_SESSION['idBagian'];
-		$data['username']  = $_SESSION['namabagian'];
+		$data['idBagian'] = $_SESSION['idBagian'];
+		$data['username'] = $_SESSION['namabagian'];
 		$data['pageTitle'] = "Persetujuan";
-		$data['items']     = $this->M_approvment->getAll();
+		$data['items'] = $this->M_approvment->getAll();
 
 		$this->load->view('_layouts/header', $data);
 		$this->load->view('V_approvment', $data);
@@ -22,22 +22,30 @@ class C_approvment extends CI_Controller
 
 	public function show($id)
 	{
-		$data['idBagian']  = $_SESSION['idBagian'];
-		$data['username']  = $_SESSION['namabagian'];
+		$data['idBagian'] = $_SESSION['idBagian'];
+		$data['username'] = $_SESSION['namabagian'];
 		$data['pageTitle'] = "Detail Persetujuan";
-		$data['item']      = $this->M_approvment->getById($id);
-		$data['images']    = $this->M_approvment->getAllImageById($id);
+		$data['item'] = $this->M_approvment->getById($id);
+		$data['images'] = $this->M_approvment->getAllImageById($id);
 
 		$this->load->view('_layouts/header', $data);
 		$this->load->view('V_approvment_detail', $data);
 		$this->load->view('_layouts/footer');
 	}
 
-	public function update($id, $status)
+	public function update($id)
 	{
-		if ($status == 'Spprove' || $status == 'Reject' || $status == 'Revisi' || $status == 'Selesai') {
-			$this->M_approvment->update($id, $status);
+		$data = [
+			'status' => $this->input->post('status'),
+			'keterangan' => $this->input->post('keterangan')
+		];
+
+		if ($data['status'] != 'revision') {
+			unset($data['keterangan']);
 		}
+
+		$this->M_approvment->update($id, $data);
+
 		redirect('C_approvment/show/' . $id);
 	}
 

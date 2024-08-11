@@ -27,7 +27,9 @@
 							<td><?= $item['id'] ?></td>
 							<td><?= $item['pegawai'] ?></td>
 							<td><?= $item['tujuan'] ?></td>
-							<td><?= 'Rp ' . number_format($item['nominal'], 2, ',', '.') ?></td>
+							<?php
+							$nominal = $item['nominal'] ?>
+							<td><?= 'Rp ' . $nominal ?></td>
 							<td><?= $item['status'] ?></td>
 							<td>
 								<a href="<?= base_url('C_approvment/show/' . $item['id']) ?>"

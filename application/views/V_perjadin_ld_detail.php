@@ -86,6 +86,13 @@ V_perjadin_dd_detail.php<!-- Display -->
 							   disabled/>
 					</div>
 					<div class="mb-3">
+						<label class="form-label" for="keterangan-revisi">Keterangan Revisi</label>
+						<input type="text" class="form-control" id="keterangan-revisi" value="<?= $item['keterangan'] ?>"
+							   disabled/>
+					</div>
+					<?php
+					if ($item['status'] == 'approve'): ?>
+					<div class="mb-3">
 						<label class="form-label">Daftar Surat</label>
 						<div>
 							<button class="btn btn-light btn-rounded">
@@ -130,6 +137,9 @@ V_perjadin_dd_detail.php<!-- Display -->
 						</div>
 					</div>
 					<?php
+					endif ?>
+
+					<?php
 					if ($item['status'] == 'approve'): ?>
 						<hr/>
 						<div class="mb-3">
@@ -153,7 +163,7 @@ V_perjadin_dd_detail.php<!-- Display -->
 							  enctype="multipart/form-data">
 							<div class="mb-3">
 								<label class="form-label">Upload Bukti Lapangan</label>
-								<input type="file" class="form-control" name="image">
+								<input type="file" class="form-control" name="image" accept="application/pdf">
 							</div>
 							<div class="mb-3">
 								<button type="submit" class="btn btn-primary">Tambah Bukti</button>

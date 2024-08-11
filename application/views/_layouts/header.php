@@ -116,7 +116,7 @@
 						<span class="avatar-online bg-success"></span>
 					</div>
 					<div class="user-info">
-						<h5 class="mt-3 font-size-16 text-white">Operator</h5>
+						<h5 class="mt-3 font-size-16 text-white"><?= $username; ?></h5>
 						<span class="font-size-13 text-white-50"><?= $idBagian; ?></span>
 					</div>
 				</div>
@@ -151,7 +151,7 @@
 					<?php
 					if ($_SESSION['role'] == 'admin') : ?>
 						<li>
-							<a href="<?= base_url('C_perjadin_dd/perjadin_recap_index') ?>" class="waves-effect">
+							<a href="<?= base_url('c_approvment/index') ?>" class="waves-effect">
 								<i class="dripicons-briefcase"></i>
 								<span>Persetujuan Surat <br>Perjalanan Dinas</span>
 							</a>

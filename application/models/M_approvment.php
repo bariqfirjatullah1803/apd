@@ -43,7 +43,7 @@ class M_approvment extends CI_Model
             dur.tanggalBerangkat AS tanggal_berangkat, dur.durasiDenganHari AS durasi_hari, 
             dest.lokasi, dest.kotaKecamatan AS tujuan, dest.dasarSurat AS dasar_surat, dest.acara,
             peg.jmlAll AS jumlah, peg.namaAll AS pegawai,
-            mon.nominalGtAll AS nominal, gi.status
+            mon.nominalGtAll AS nominal, gi.status, gi.keterangan
             FROM recap_all_general_information AS gi
             INNER JOIN recap_all_date_and_durations AS dur
                 ON gi.idSubmit = dur.idSubmit
@@ -76,5 +76,10 @@ class M_approvment extends CI_Model
 	public function upload($data)
 	{
 		$this->db->insert('recap_all_bukti', $data);
+	}
+
+	public function update_keterangan($id, $ket)
+	{
+		$this->db->update('recap_all_general_information', ['keterangan' => $ket], ['idSubmit' => $id]);
 	}
 }

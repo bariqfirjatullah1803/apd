@@ -85,60 +85,49 @@
 						<input type="text" class="form-control" id="status-approvment" value="<?= $item['status'] ?>"
 							   disabled/>
 					</div>
-					<div class="mb-3">
-						<label class="form-label">Daftar Surat</label>
-						<div>
-							<button class="btn btn-light btn-rounded">
-								<a href="<?= base_url(); ?>C_perjadin_dd/dst/<?= $item['id']; ?>"
-								   target="_blank">
-									Surat Tugas
-								</a>
-								<i class="mdi mdi-download ml-2"></i>
-							</button>
 
-							<button class="btn btn-light btn-rounded">
-								<a href="<?= base_url(); ?>C_perjadin_dd/dsppd/<?= $item['id']; ?>"
-								   target="_blank">
-									SPPD
-								</a>
-								<i class="mdi mdi-download ml-2"></i>
-							</button>
-
-							<button class="btn btn-light btn-rounded">
-								<a href="<?= base_url(); ?>C_perjadin_dd/dsppdlembar2/<?= $item['id']; ?>"
-								   target="_blank">
-									SPPD Lembar 2
-								</a>
-								<i class="mdi mdi-download ml-2"></i>
-							</button>
-
-							<button class="btn btn-light btn-rounded">
-								<a href="<?= base_url(); ?>C_perjadin_dd/dkwt/<?= $item['id']; ?>"
-								   target="_blank">
-									Kwitansi
-								</a>
-								<i class="mdi mdi-download ml-2"></i>
-							</button>
-
-							<button class="btn btn-light btn-rounded">
-								<a href="<?= base_url(); ?>C_perjadin_dd/dtt/<?= $item['id']; ?>"
-								   target="_blank">
-									Tanda Terima
-								</a>
-								<i class="mdi mdi-download ml-2"></i>
-							</button>
-						</div>
-					</div>
 					<?php
 					if ($item['status'] == 'pending'): ?>
 						<div class="mb-3">
-							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/approve') ?>"
+							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/Approve') ?>"
 							   class="btn btn-primary">Setuju</a>
-							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/reject') ?>"
+							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/Reject') ?>"
 							   class="btn btn-danger">Tolak</a>
 						</div>
 					<?php
 					endif ?>
+					
+					<?php
+					if ($item['status'] == 'approve'): ?>
+					<form id="form_update_keterangan" method="POST" onsubmit="fungsi_update_ket()">
+						<div class="mb-3">
+							<label class="form-label" for="keterangan_approvement">Keterangan</label>
+							<input type="text" class="form-control" id="keterangan_approvement"/>
+						</div>
+					<button class="btn btn-primary float-right" type="submit" id="btnSubmitRevisi">Revisi</button>
+					</form>
+					<?php
+					endif ?>
+
+					<?php
+					if ($item['status'] == 'approve'): ?>
+						<div class="mt-3">
+							<a href="<?= base_url('C_approvment/update/' . $item['id'] . '/Selesai') ?>"
+							   class="btn btn-danger">Selesai</a>
+						</div>
+					<?php
+					endif ?>
+
+					<script>
+						function fungsi_update_ket(){
+							var action_src = base_url('C_approvment/update_keterangan/' 
+							. $item['id'] . '/'. + document.getElementsById("keterangan_approvement")[0]);
+
+							var form_update_ket = document.getElementsById("form_update_keterangan");
+							form_update_ket.action = action_src;
+						}
+					<script>
+
 					<div class="mb-3">
 						<label class="form-label">Bukti Lapangan</label>
 						<div>

@@ -35,9 +35,16 @@ class C_approvment extends CI_Controller
 
 	public function update($id, $status)
 	{
-		if ($status == 'approve' || $status == 'reject') {
+		if ($status == 'Spprove' || $status == 'Reject' || $status == 'Revisi' || $status == 'Selesai') {
 			$this->M_approvment->update($id, $status);
 		}
+		redirect('C_approvment/show/' . $id);
+	}
+
+	public function update_keterangan($id, $ket)
+	{
+		$this->M_approvment->update($id, "Revisi");
+		$this->M_approvment->update_keterangan($id, $ket);
 		redirect('C_approvment/show/' . $id);
 	}
 }

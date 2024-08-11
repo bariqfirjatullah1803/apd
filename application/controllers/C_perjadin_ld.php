@@ -86,8 +86,8 @@ class C_perjadin_ld extends CI_Controller
 	public function do_upload($id)
 	{
 		$config['upload_path']   = './uploads/bukti-lapangan';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['encrypt_name']  = true;
+		$config['allowed_types'] = 'pdf';
+		$config['encrypt_name']  = false;
 
 		$this->load->library('upload', $config);
 
